@@ -35,8 +35,13 @@ LOCAL_LINKS = {
     'https://www.kfupm.edu.sa/about-us/discover/news': 'news.html',
 }
 STUDY_EXTRA = ('<h6>Programs</h6><a href="study.html">Study at KFUPM</a>'
-               '<a href="admissions.html">Admissions</a>'
+               '<a href="admissions-hub.html">Admissions</a>'
+               '<a href="undergraduate.html">Undergraduate admission</a>'
                '<a href="programs-search.html">Find a program</a>')
+# The first version of the Study menu additions, replaced by STUDY_EXTRA where found.
+OLD_STUDY_EXTRA = ('<h6>Programs</h6><a href="study.html">Study at KFUPM</a>'
+                   '<a href="admissions.html">Admissions</a>'
+                   '<a href="programs-search.html">Find a program</a>')
 
 
 def rd(p):
@@ -55,6 +60,7 @@ CHATBOT = ('<script type="text/javascript">window.GeckoChatSettings={widgetId:"2
 def patch_links(html):
     for old, new in LOCAL_LINKS.items():
         html = html.replace('href="%s"' % old, 'href="%s"' % new)
+    html = html.replace(OLD_STUDY_EXTRA, STUDY_EXTRA)
     if 'href="study.html">Study at KFUPM' not in html:
         html = html.replace('<h6>Programs</h6>', STUDY_EXTRA, 1)
     if 'GeckoChatSettings' not in html:
@@ -117,7 +123,13 @@ def build_page(version, name, meta, body, top, wave, foot):
 
 def main():
     pages = sorted(f for f in os.listdir(os.path.join(SRC, 'pages')) if f.endswith('.html'))
+    # src/pages.css plus any page-specific files in src/css/, merged into one stylesheet
     css = rd(os.path.join(SRC, 'pages.css'))
+    extra_dir = os.path.join(SRC, 'css')
+    if os.path.isdir(extra_dir):
+        for f in sorted(os.listdir(extra_dir)):
+            if f.endswith('.css'):
+                css += '\n\n/* ===== src/css/%s ===== */\n' % f + rd(os.path.join(extra_dir, f))
     for v in VERSIONS:
         wr(os.path.join(ROOT, v, 'assets', 'pages.css'), css)
         top, wave, foot = shell(v)

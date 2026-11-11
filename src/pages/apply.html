@@ -5,29 +5,53 @@ crumbs: Study=study.html; Apply
 h1: Apply to <em>KFUPM</em>
 lead: Key dates, application steps and admission tracks for undergraduate and graduate study, all in one place.
 -->
-<section class="facts">
+<section class="plain">
   <div class="wrap">
-    <div class="section-head reveal"><div><span class="eyebrow">Rankings and achievements</span><h2 class="section-title">Why students apply to KFUPM</h2></div><a class="btn ghost" href="https://www.kfupm.edu.sa/about-us/our-story/facts-and-rankings">Facts and figures</a></div>
-    <div class="facts-grid">
-      <div class="surface fact reveal"><div class="orb"><b data-n="1" data-s="st">1st</b></div><p>QS Arab Region University Ranking 2024</p></div>
-      <div class="surface fact reveal"><div class="orb"><b data-n="25" data-s="th">25th</b></div><p>Times Higher Education Impact Ranking 2025</p></div>
-      <div class="surface fact reveal"><div class="orb"><b data-n="5" data-s="th">5th</b></div><p>Worldwide Universities Granted U.S. Utility Patents</p></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="split reveal">
-      <div>
-        <span class="eyebrow">Applications overview</span>
-        <h2>Begin your application</h2>
-        <p>Studying at KFUPM means building a path that is designed to yield results. As a top higher education institution, KFUPM offers prospective students unique opportunities to advance the course of technology and science, conducting research that addresses real-world challenges.</p>
-        <p>Choose your applicant type, study path and degree, then start your application online or check the status of one you have already made.</p>
-        <a class="btn" href="https://apply.kfupm.edu.sa">Start application</a>
-        <a class="btn ghost" href="https://apply.kfupm.edu.sa">Check status</a>
+    <div class="rank-band apply-gold reveal">
+      <h2 class="apply-sr">University rankings and achievements</h2>
+      <div class="stats">
+        <div class="stat"><b>1st</b><p>QS Arab Region University Ranking 2024</p></div>
+        <div class="stat"><b>25th</b><p>Times Higher Education Impact Ranking 2025</p></div>
+        <div class="stat"><b>5th</b><p>Worldwide Universities Granted U.S. Utility Patents</p></div>
       </div>
-      <div class="split-media"><img src="assets/img/title-people-3.webp" alt="Prospective KFUPM students" loading="lazy"></div>
+      <div class="band-photo"><img src="assets/img/title-people-3.webp" alt="Two KFUPM students smiling" width="421" height="374"></div>
+    </div>
+
+    <div class="apply-intro reveal">
+      <div class="apply-intro-text">
+        <img src="assets/img/summary-apply.webp" alt="Three KFUPM students on campus" width="430" height="417">
+        <div>
+          <h2>Applications Overview</h2>
+          <p>Studying at KFUPM means building a path that is designed to yield results. As a top higher education institution, KFUPM offers prospective students unique opportunities to advance the course of technology and science, conducting research that addresses real-world challenges.</p>
+        </div>
+      </div>
+      <form class="apply-form" action="https://apply.kfupm.edu.sa" method="get">
+        <label class="apply-sr" for="ddlApplicantType">Choose applicant type</label>
+        <select id="ddlApplicantType">
+          <option value="">I am a</option>
+          <option>Saudi applicant</option>
+          <option>Resident of the Kingdom</option>
+          <option>International applicant</option>
+        </select>
+        <label class="apply-sr" for="ddlPathType">Select a study path</label>
+        <select id="ddlPathType">
+          <option value="">Choose a Study Path</option>
+          <option>Undergraduate</option>
+          <option>Graduate</option>
+        </select>
+        <label class="apply-sr" for="ddlDegree">Select a degree</label>
+        <select id="ddlDegree">
+          <option value="">Choose a Degree</option>
+          <option>Bachelor of Science (B.Sc.)</option>
+          <option>Undergraduate Concentrations (CX)</option>
+          <option>Master of Science (M.Sc.)</option>
+          <option>Doctor of Philosophy (PhD)</option>
+        </select>
+        <div class="apply-form-actions">
+          <button class="btn" type="submit">Start Application</button>
+          <a class="btn ghost" href="https://apply.kfupm.edu.sa">Check Status</a>
+        </div>
+      </form>
     </div>
   </div>
 </section>
@@ -216,7 +240,7 @@ lead: Key dates, application steps and admission tracks for undergraduate and gr
 
 <section>
   <div class="wrap">
-    <div class="section-head reveal"><div><span class="eyebrow">Funding</span><h2 class="section-title">Scholarships and financial aid</h2></div><a class="btn ghost" href="tuition-calculator.html">Estimate fees</a></div>
+    <div class="section-head reveal" id="scholarships"><div><span class="eyebrow">Funding</span><h2 class="section-title">Scholarships and financial aid</h2></div><a class="btn ghost" href="tuition-calculator.html">Estimate fees</a></div>
     <div class="table-wrap reveal">
       <table class="data">
         <thead><tr><th scope="col">Undergraduate</th><th scope="col">Masters (Professional)</th><th scope="col">Masters (Research)</th><th scope="col">PhD</th></tr></thead>

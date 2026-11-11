@@ -1,0 +1,24 @@
+/* Apply page: top section after the KFUPM reference (gold rankings strip with photo,
+   beige overview panel with a three-step form). */
+.apply-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.rank-band.apply-gold { background: var(--yellow, var(--amber, #f0ba4f)); color: var(--ink); }
+.rank-band.apply-gold .stat b { color: var(--accent); }
+.rank-band.apply-gold .stat + .stat { border-left-color: rgba(0, 0, 0, .14); }
+
+.apply-intro { display: grid; grid-template-columns: 7fr 5fr; margin-top: 16px; background: var(--quote-tint, #ECE0C7); border-radius: var(--radius); }
+.apply-intro-text { display: grid; grid-template-columns: minmax(0, 200px) 1fr; gap: 26px; align-items: center; padding: 28px; }
+.apply-intro-text img { width: 100%; max-width: 200px; height: auto; border-radius: var(--radius); }
+.apply-intro-text h2 { font-family: var(--font-title, var(--font)); font-weight: 400; color: var(--ink); font-size: clamp(1.4rem, 1.2rem + .8vw, 1.8rem); line-height: 1.2; margin-bottom: 10px; }
+.apply-intro-text p { color: var(--ink); font-size: .98rem; }
+.apply-form { display: grid; gap: 12px; align-content: center; padding: 28px; border-left: 1px solid rgba(0, 0, 0, .12); }
+.apply-form select { background-color: #fff; }
+.apply-form-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+
+@media (max-width: 960px) {
+  .apply-intro { grid-template-columns: 1fr; }
+  .apply-form { border-left: 0; border-top: 1px solid rgba(0, 0, 0, .12); }
+}
+@media (max-width: 560px) {
+  .apply-intro-text { grid-template-columns: 1fr; }
+}
