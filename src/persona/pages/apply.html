@@ -1,0 +1,406 @@
+<!--
+title: Apply to KFUPM · KFUPM
+description: How to apply to KFUPM: key dates, the five application steps, admission tracks, entry requirements, scholarships and who to contact.
+crumbs: Study=study.html; Apply
+h1: Apply to <em>KFUPM</em>
+lead: Key dates, application steps and admission tracks for undergraduate and graduate study, all in one place.
+h1.undergrad: Start your <em>bachelor's</em> at KFUPM
+lead.undergrad: Undergraduate admission tracks first: Qudrat and Tahsili, SAT 1350+ and the International Olympiad track, then key dates and entry requirements.
+h1.graduate: Apply for <em>graduate study</em>
+lead.graduate: Master's, Executive MBA and PhD tracks, the M.Sc. and PhD key dates, and a tuition estimate for your program.
+h1.international: Apply from <em>abroad</em>
+lead.international: Visa sponsorship after final admission, English requirements and credential evaluation come first, then the same application steps as everyone else.
+h1.parent: Help your <em>child</em> apply
+lead.parent: Fees and scholarships, how the application works step by step, and who to contact with your questions.
+h1.faculty: Teaching and research at <em>KFUPM</em>
+lead.faculty: Faculty and researchers join KFUPM through its careers page, not the student application. Start with open roles and our research.
+order.undergrad: tracks, dates, requirements, steps, scholarships
+order.graduate: tracks, dates, scholarships, requirements, steps
+order.international: international, requirements, steps, quote, dates
+order.parent: scholarships, steps, contact, overview
+order.faculty: faculty, overview
+-->
+<section class="plain" data-key="overview">
+  <div class="wrap">
+    <div class="rank-band apply-gold reveal">
+      <h2 class="apply-sr">University rankings and achievements</h2>
+      <div class="stats">
+        <div class="stat"><b>1st</b><p>QS Arab Region University Ranking 2024</p></div>
+        <div class="stat"><b>25th</b><p>Times Higher Education Impact Ranking 2025</p></div>
+        <div class="stat"><b>5th</b><p>Worldwide Universities Granted U.S. Utility Patents</p></div>
+      </div>
+      <div class="band-photo"><img src="assets/img/title-people-3.webp" alt="Two KFUPM students smiling" width="421" height="374"></div>
+    </div>
+
+    <div class="apply-intro reveal" data-not-for="faculty">
+      <div class="apply-intro-text">
+        <img src="assets/img/summary-apply.webp" alt="Three KFUPM students on campus" width="430" height="417">
+        <div>
+          <h2 data-not-for="parent">Applications Overview</h2>
+          <h2 data-for="parent">Applying, for parents</h2>
+          <p>Studying at KFUPM means building a path that is designed to yield results. As a top higher education institution, KFUPM offers prospective students unique opportunities to advance the course of technology and science, conducting research that addresses real-world challenges.</p>
+        </div>
+      </div>
+      <form class="apply-form" action="https://apply.kfupm.edu.sa" method="get">
+        <label class="apply-sr" for="ddlApplicantType">Choose applicant type</label>
+        <select id="ddlApplicantType">
+          <option value="">I am a</option>
+          <option>Saudi applicant</option>
+          <option>Resident of the Kingdom</option>
+          <option>International applicant</option>
+        </select>
+        <label class="apply-sr" for="ddlPathType">Select a study path</label>
+        <select id="ddlPathType">
+          <option value="">Choose a Study Path</option>
+          <option>Undergraduate</option>
+          <option>Graduate</option>
+        </select>
+        <label class="apply-sr" for="ddlDegree">Select a degree</label>
+        <select id="ddlDegree">
+          <option value="">Choose a Degree</option>
+          <option>Bachelor of Science (B.Sc.)</option>
+          <option>Undergraduate Concentrations (CX)</option>
+          <option>Master of Science (M.Sc.)</option>
+          <option>Doctor of Philosophy (PhD)</option>
+        </select>
+        <div class="apply-form-actions">
+          <button class="btn" type="submit">Start Application</button>
+          <a class="btn ghost" href="https://apply.kfupm.edu.sa">Check Status</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    (function () {
+      // Preselect the form's "I am a" and "Choose a Study Path" for the chosen audience.
+      var TYPE = { international: 'International applicant' };
+      var PATH = { undergrad: 'Undergraduate', graduate: 'Graduate' };
+      document.addEventListener('persona:change', function (e) {
+        var k = e.detail;
+        var type = document.getElementById('ddlApplicantType');
+        var path = document.getElementById('ddlPathType');
+        if (type) type.value = TYPE[k] || '';
+        if (path) path.value = PATH[k] || '';
+      });
+    })();
+  </script>
+</section>
+
+<section data-key="faculty" data-for="faculty">
+  <div class="wrap">
+    <div class="section-head reveal"><div><span class="eyebrow">Faculty and researchers</span><h2 class="section-title">Join KFUPM to teach or research</h2><p class="lead">The application on this page is for students. Teaching and research roles are listed on the KFUPM careers page.</p></div><a class="btn" href="https://www.kfupm.edu.sa/about-us/connect/careers">Careers at KFUPM</a></div>
+    <div class="grid c4">
+      <a class="surface card reveal" href="https://www.kfupm.edu.sa/about-us/connect/careers">
+        <div class="body"><span class="tag">Careers</span><h3>Careers at KFUPM</h3><p>Open teaching and research roles.</p><span class="link-arrow">View careers</span></div>
+      </a>
+      <a class="surface card reveal" href="https://www.kfupm.edu.sa/research/our-research/our-research-pillars">
+        <div class="body"><span class="tag">Research</span><h3>Research pillars</h3><p>The areas KFUPM research is built around.</p><span class="link-arrow">Explore pillars</span></div>
+      </a>
+      <a class="surface card reveal" href="https://www.kfupm.edu.sa/research/our-research/our-research-centers">
+        <div class="body"><span class="tag">Research</span><h3>Research centers</h3><p>KFUPM's research centers.</p><span class="link-arrow">Explore centers</span></div>
+      </a>
+      <a class="surface card reveal" href="colleges.html">
+        <div class="body"><span class="tag">Academics</span><h3>Colleges</h3><p>The colleges and departments you could join.</p><span class="link-arrow">View colleges</span></div>
+      </a>
+    </div>
+    <div class="surface cta-band reveal">
+      <div><h3>Meet the leadership</h3><p>See who leads the university.</p></div>
+      <a class="btn" href="leaders.html">Leadership</a>
+    </div>
+  </div>
+</section>
+
+<section data-key="dates" data-not-for="faculty">
+  <div class="wrap">
+    <div class="section-head reveal"><div><span class="eyebrow">Calendar</span><h2 class="section-title">Key dates and deadlines</h2></div></div>
+    <div data-tabs class="reveal" id="apply-date-tabs">
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" aria-selected="true" type="button" data-not-for="graduate">Bachelor of Science</button>
+        <button class="tab" role="tab" aria-selected="false" type="button" data-not-for="graduate">Undergraduate Concentrations</button>
+        <button class="tab" role="tab" aria-selected="false" type="button" data-not-for="undergrad">Master of Science</button>
+        <button class="tab" role="tab" aria-selected="false" type="button" data-not-for="undergrad">Doctor of Philosophy (PhD)</button>
+      </div>
+      <div class="surface tab-panel on" role="tabpanel">
+        <div class="table-wrap">
+          <table class="data">
+            <caption class="eyebrow">Bachelor of Science</caption>
+            <thead><tr><th scope="col">Cycle</th><th scope="col">Opening online application</th><th scope="col">Last day for submitting online applications</th><th scope="col">Last day for announcement of application results</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Fall Cycle 1</th><td>Mar 15</td><td>Mar 15</td><td>Mar 15</td></tr>
+              <tr><th scope="row">Fall Cycle 2</th><td>Mar 30</td><td>Mar 30</td><td>Mar 30</td></tr>
+              <tr><th scope="row">Spring Cycle 1</th><td>Aug 15</td><td>Aug 15</td><td>Aug 15</td></tr>
+              <tr><th scope="row">Spring Cycle 2</th><td>Oct 30</td><td>Oct 30</td><td>Oct 30</td></tr>
+              <tr><th scope="row">Spring Cycle 3</th><td>Jan 15</td><td>Jan 15</td><td>Jan 15</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="surface tab-panel" role="tabpanel">
+        <div class="table-wrap">
+          <table class="data">
+            <caption class="eyebrow">Undergraduate Concentrations</caption>
+            <thead><tr><th scope="col">Cycle</th><th scope="col">Opening online application</th><th scope="col">Last day for submitting online applications</th><th scope="col">Last day for announcement of application results</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Fall Cycle 1</th><td>Mar 20</td><td>Mar 20</td><td>Mar 20</td></tr>
+              <tr><th scope="row">Spring Cycle 1</th><td>Aug 20</td><td>Aug 20</td><td>Aug 20</td></tr>
+              <tr><th scope="row">Spring Cycle 2</th><td>Oct 20</td><td>Oct 20</td><td>Oct 20</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="surface tab-panel" role="tabpanel">
+        <div class="table-wrap">
+          <table class="data">
+            <caption class="eyebrow">Master of Science</caption>
+            <thead><tr><th scope="col">Cycle</th><th scope="col">Opening online application</th><th scope="col">Last day for submitting online applications</th><th scope="col">Last day for announcement of application results</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Fall Cycle 1</th><td>Mar 10</td><td>Mar 10</td><td>Mar 10</td></tr>
+              <tr><th scope="row">Spring Cycle 1</th><td>Aug 10</td><td>Aug 10</td><td>Aug 10</td></tr>
+              <tr><th scope="row">Spring Cycle 2</th><td>Oct 10</td><td>Oct 10</td><td>Oct 10</td></tr>
+              <tr><th scope="row">Spring Cycle 3</th><td>Jan 10</td><td>Jan 10</td><td>Jan 10</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="surface tab-panel" role="tabpanel">
+        <div class="table-wrap">
+          <table class="data">
+            <caption class="eyebrow">Doctor of Philosophy (PhD)</caption>
+            <thead><tr><th scope="col">Cycle</th><th scope="col">Opening online application</th><th scope="col">Last day for submitting online applications</th><th scope="col">Last day for announcement of application results</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Fall Cycle 1</th><td>Mar 20</td><td>Mar 20</td><td>Mar 20</td></tr>
+              <tr><th scope="row">Fall Cycle 2</th><td>Mar 20</td><td>Mar 20</td><td>Mar 20</td></tr>
+              <tr><th scope="row">Spring Cycle 1</th><td>Aug 20</td><td>Aug 20</td><td>Aug 20</td></tr>
+              <tr><th scope="row">Spring Cycle 2</th><td>Oct 20</td><td>Oct 20</td><td>Oct 20</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-key="steps" data-not-for="faculty">
+  <div class="wrap">
+    <div class="section-head reveal"><div><span class="eyebrow">Step by step</span><h2 class="section-title" data-not-for="parent">How to apply</h2><h2 class="section-title" data-for="parent">How the application works</h2><p class="lead" data-for="parent">The five steps your son or daughter goes through, from creating an account to enrolment.</p></div><a class="btn ghost" href="admissions.html">Admissions overview</a></div>
+    <ol class="steps cols">
+      <li class="reveal"><h3>Register</h3><p>In order to register, first you will need to <a class="link-arrow" href="https://qabool.kfupm.edu.sa">create your account on qabool.kfupm.edu.sa</a></p></li>
+      <li class="reveal"><h3>Submit documents</h3><p>Upload transcripts and test scores. Undergraduate: Qudrat + Tahsili or SAT 1350+. Graduate: GPA records and references.</p></li>
+      <li class="reveal"><h3>Initial review</h3><p>Candidacy notification with assigned major.</p></li>
+      <li class="reveal"><h3>Conditional admission</h3><p>Confirm specialisation, pending document verification.</p></li>
+      <li class="reveal"><h3>Enrolment</h3><p>University number, electronic services, orientation.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section data-key="tracks" data-not-for="faculty">
+  <div class="wrap">
+    <div class="section-head reveal"><div><span class="eyebrow">Choose your route</span><h2 class="section-title">Admission tracks</h2></div><a class="btn ghost" href="undergraduate.html" data-for="undergrad">Undergraduate guide</a><a class="btn ghost" href="tuition-calculator.html" data-for="graduate">Tuition calculator</a></div>
+    <div data-tabs class="reveal" id="apply-track-tabs">
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" aria-selected="true" type="button">All tracks</button>
+        <button class="tab" role="tab" aria-selected="false" type="button" data-not-for="graduate">Undergraduate</button>
+        <button class="tab" role="tab" aria-selected="false" type="button" data-not-for="undergrad">Graduate</button>
+      </div>
+      <div class="tab-panel on" role="tabpanel">
+        <div class="grid c4">
+          <a class="surface card" href="https://apply.kfupm.edu.sa">
+            <div class="thumb"><img src="assets/img/cards/card-002.webp" alt="Primary Admission Track" loading="lazy"></div>
+            <div class="body"><span class="tag">Applications open</span><h3>Primary Admission Track</h3><p>Key requirement: Qudrat 50% + Tahsili 50%</p><span class="link-arrow">Apply now</span></div>
+          </a>
+          <a class="surface card" href="https://apply.kfupm.edu.sa">
+            <div class="thumb"><img src="assets/img/cards/card-001.webp" alt="SAT Admissions Track" loading="lazy"></div>
+            <div class="body"><span class="tag">Applications open</span><h3>SAT Admissions Track</h3><p>Key requirement: SAT score 1350+ required</p><span class="link-arrow">Apply now</span></div>
+          </a>
+          <a class="surface card" href="https://apply.kfupm.edu.sa">
+            <div class="thumb"><img src="assets/img/cards/card-003.webp" alt="International Olympiad Track" loading="lazy"></div>
+            <div class="body"><span class="tag">Applications open</span><h3>International Olympiad Track</h3><p>Key requirement: International Olympiad winners</p><span class="link-arrow">Apply now</span></div>
+          </a>
+          <a class="surface card" href="admissions.html">
+            <div class="thumb"><img src="assets/img/cards/card-004.webp" alt="Secondary Admission Track" loading="lazy"></div>
+            <div class="body"><span class="tag">Applications closed</span><h3>Secondary Admission Track</h3><p>Key requirement: Qudrat 50% + Tahsili 40% + High School 10%</p><span class="link-arrow">More details</span></div>
+          </a>
+          <a class="surface card" href="https://apply.kfupm.edu.sa">
+            <div class="thumb"><img src="assets/img/cards/card-001.webp" alt="Graduate MS (Project-Based)" loading="lazy"></div>
+            <div class="body"><span class="tag">Applications open</span><h3>Graduate MS (Project-Based)</h3><p>Key requirement: Bachelor's degree, min GPA varies by programme</p><span class="link-arrow">Apply now</span></div>
+          </a>
+          <a class="surface card" href="admissions.html">
+            <div class="thumb"><img src="assets/img/cards/card-006.webp" alt="Graduate MS (Thesis-Based) &amp; PhD" loading="lazy"></div>
+            <div class="body"><span class="tag">Applications closed</span><h3>Graduate MS (Thesis-Based) &amp; PhD</h3><p>Key requirement: Bachelor's/Master's degree + research proposal</p><span class="link-arrow">More details</span></div>
+          </a>
+          <a class="surface card" href="https://apply.kfupm.edu.sa">
+            <div class="thumb"><img src="assets/img/cards/card-007.webp" alt="Executive MBA" loading="lazy"></div>
+            <div class="body"><span class="tag">Applications open</span><h3>Executive MBA</h3><p>Key requirement: Bachelor's + professional experience</p><span class="link-arrow">Apply now</span></div>
+          </a>
+        </div>
+      </div>
+      <div class="tab-panel" role="tabpanel">
+        <div class="grid c4">
+          <a class="surface card" href="https://apply.kfupm.edu.sa">
+            <div class="thumb"><img src="assets/img/cards/card-002.webp" alt="Primary Admission Track" loading="lazy"></div>
+            <div class="body"><span class="tag">Applications open</span><h3>Primary Admission Track</h3><p>Key requirement: Qudrat 50% + Tahsili 50%</p><span class="link-arrow">Apply now</span></div>
+          </a>
+          <a class="surface card" href="https://apply.kfupm.edu.sa">
+            <div class="thumb"><img src="assets/img/cards/card-001.webp" alt="SAT Admissions Track" loading="lazy"></div>
+            <div class="body"><span class="tag">Applications open</span><h3>SAT Admissions Track</h3><p>Key requirement: SAT score 1350+ required</p><span class="link-arrow">Apply now</span></div>
+          </a>
+          <a class="surface card" href="https://apply.kfupm.edu.sa" data-not-for="undergrad">
+            <div class="thumb"><img src="assets/img/cards/card-003.webp" alt="International Olympiad Track" loading="lazy"></div>
+            <div class="body"><span class="tag">Applications open</span><h3>International Olympiad Track</h3><p>Key requirement: International Olympiad winners</p><span class="link-arrow">Apply now</span></div>
+          </a>
+          <a class="surface card" href="olympiad.html" data-for="undergrad">
+            <div class="thumb"><img src="assets/img/cards/card-003.webp" alt="International Olympiad Track" loading="lazy"></div>
+            <div class="body"><span class="tag">Applications open</span><h3>International Olympiad Track</h3><p>Key requirement: International Olympiad winners</p><span class="link-arrow">Olympiad track details</span></div>
+          </a>
+          <a class="surface card" href="admissions.html">
+            <div class="thumb"><img src="assets/img/cards/card-004.webp" alt="Secondary Admission Track" loading="lazy"></div>
+            <div class="body"><span class="tag">Applications closed</span><h3>Secondary Admission Track</h3><p>Key requirement: Qudrat 50% + Tahsili 40% + High School 10%</p><span class="link-arrow">More details</span></div>
+          </a>
+        </div>
+      </div>
+      <div class="tab-panel" role="tabpanel">
+        <div class="grid c4">
+          <a class="surface card" href="https://apply.kfupm.edu.sa">
+            <div class="thumb"><img src="assets/img/cards/card-001.webp" alt="Graduate MS (Project-Based)" loading="lazy"></div>
+            <div class="body"><span class="tag">Applications open</span><h3>Graduate MS (Project-Based)</h3><p>Key requirement: Bachelor's degree, min GPA varies by programme</p><span class="link-arrow">Apply now</span></div>
+          </a>
+          <a class="surface card" href="admissions.html">
+            <div class="thumb"><img src="assets/img/cards/card-006.webp" alt="Graduate MS (Thesis-Based) &amp; PhD" loading="lazy"></div>
+            <div class="body"><span class="tag">Applications closed</span><h3>Graduate MS (Thesis-Based) &amp; PhD</h3><p>Key requirement: Bachelor's/Master's degree + research proposal</p><span class="link-arrow">More details</span></div>
+          </a>
+          <a class="surface card" href="https://apply.kfupm.edu.sa">
+            <div class="thumb"><img src="assets/img/cards/card-007.webp" alt="Executive MBA" loading="lazy"></div>
+            <div class="body"><span class="tag">Applications open</span><h3>Executive MBA</h3><p>Key requirement: Bachelor's + professional experience</p><span class="link-arrow">Apply now</span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="surface cta-band reveal" data-for="undergrad">
+      <div><h3>Won an International Olympiad?</h3><p>International Olympiad winners have their own admission track.</p></div>
+      <a class="btn" href="olympiad.html">Olympiad track</a>
+    </div>
+  </div>
+  <script>
+    (function () {
+      // Open the tab that fits the audience: Bachelor dates and undergraduate tracks for
+      // future undergraduates, Master of Science dates and graduate tracks for graduates.
+      var PICK = {
+        'apply-date-tabs': { graduate: 2 },
+        'apply-track-tabs': { undergrad: 1, graduate: 2 }
+      };
+      // Read the buttons and panels now, while every tab is still in the page: the persona
+      // engine takes the hidden ones out, and tabs are matched to panels by position.
+      var GROUPS = {};
+      Object.keys(PICK).forEach(function (id) {
+        var group = document.getElementById(id);
+        if (group) GROUPS[id] = { tabs: group.querySelectorAll('.tab'), panels: group.querySelectorAll('.tab-panel') };
+      });
+      function select(id, index) {
+        var g = GROUPS[id];
+        if (!g) return;
+        Array.prototype.forEach.call(g.tabs, function (t, i) { t.setAttribute('aria-selected', i === index ? 'true' : 'false'); });
+        Array.prototype.forEach.call(g.panels, function (p, i) { p.classList.toggle('on', i === index); });
+      }
+      document.addEventListener('persona:change', function (e) {
+        Object.keys(GROUPS).forEach(function (id) { select(id, PICK[id][e.detail] || 0); });
+      });
+    })();
+  </script>
+</section>
+
+<section data-key="requirements" data-not-for="faculty">
+  <div class="wrap">
+    <div class="section-head reveal"><div><span class="eyebrow">Requirements</span><h2 class="section-title">Entry requirements comparison</h2><p class="lead" data-for="international">For non-Saudi qualifications, credential evaluation is required at every level, and the English requirement is the same for all.</p></div></div>
+    <div class="table-wrap reveal">
+      <table class="data">
+        <thead><tr><th scope="col">Type</th><th scope="col">Undergraduate</th><th scope="col">Graduate</th><th scope="col">PhD</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Academic</th><td>Saudi high school diploma (General, CS/Engineering, or Health streams). Graduation within the last 2 years.</td><td>Bachelor's degree with minimum GPA (varies by programme)</td><td>Master's degree with strong academic record</td></tr>
+          <tr><th scope="row">Test scores</th><td>Qudrat + Tahsili, or SAT 1350+</td><td>Not required (GPA-based entry)</td><td>Not required (GPA-based entry)</td></tr>
+          <tr><th scope="row">English</th><td>STEP 65+ / IELTS 4.5+ / TOEFL iBT 45+ / Duolingo 80+</td><td>STEP 65+ / IELTS 4.5+ / TOEFL iBT 45+ / Duolingo 80+</td><td>STEP 65+ / IELTS 4.5+ / TOEFL iBT 45+ / Duolingo 80+</td></tr>
+          <tr><th scope="row">Documents</th><td>Transcripts, national ID, test score reports</td><td>Transcripts, Bachelor's degree certificate, letters of recommendation, statement of purpose</td><td>Master's degree certificate, research proposal, academic references, publications (preferred)</td></tr>
+          <tr><th scope="row">International</th><td>Credential evaluation required for non-Saudi qualifications</td><td>Credential evaluation required</td><td>Credential evaluation required</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section data-key="scholarships" data-not-for="faculty">
+  <div class="wrap">
+    <div class="section-head reveal" id="scholarships"><div><span class="eyebrow">Funding</span><h2 class="section-title" data-not-for="parent">Scholarships and financial aid</h2><h2 class="section-title" data-for="parent">What it costs, and the scholarships</h2><p class="lead" data-for="parent">Undergraduate study is tuition-free for Saudi nationals. Research Master's and PhD students are fully funded with a monthly stipend.</p></div><a class="btn ghost" href="tuition-calculator.html">Estimate fees</a></div>
+    <div class="table-wrap reveal">
+      <table class="data">
+        <thead><tr><th scope="col">Undergraduate</th><th scope="col">Masters (Professional)</th><th scope="col">Masters (Research)</th><th scope="col">PhD</th></tr></thead>
+        <tbody>
+          <tr><td>Tuition-free for Saudi nationals</td><td>SAR 2,000 to 3,000 per credit hour</td><td>Fully funded with a monthly stipend</td><td>Fully funded with a monthly stipend</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="surface cta-band reveal" data-for="graduate international parent">
+      <div><h3>Estimate graduate tuition</h3><p>Choose your path and program, then add your details. Your estimate and savings update as you go.</p></div>
+      <a class="btn" href="tuition-calculator.html">Tuition calculator</a>
+    </div>
+  </div>
+</section>
+
+<section data-key="international" data-not-for="faculty">
+  <div class="wrap">
+    <div class="split reverse reveal">
+      <div>
+        <span class="eyebrow">International students</span>
+        <h2>Applying from abroad</h2>
+        <p>Studying abroad is a significant step, and you should feel confident about your decision. At KFUPM, students find a supportive environment, practical programs, and global connections that prepare them for the future.</p>
+        <ul class="feature-list">
+          <li><img src="assets/img/bullet-icons/icon-1.png" alt="" loading="lazy"><div><h3>Visa and sponsorship</h3><p>KFUPM provides visa sponsorship after final admission.</p></div></li>
+          <li><img src="assets/img/bullet-icons/icon-2.png" alt="" loading="lazy"><div><h3>English requirements</h3><p>STEP 65+, IELTS 4.5+, TOEFL iBT 45+, Duolingo 80+.</p></div></li>
+          <li><img src="assets/img/bullet-icons/icon-3.png" alt="" loading="lazy"><div><h3>Credential evaluation</h3><p>Submit attested transcripts and degree certificates.</p></div></li>
+        </ul>
+        <p><a class="btn ghost" href="https://www.kfupm.edu.sa/study/international-students/apply-as-an-international-student">International Student Hub</a></p>
+        <p data-for="international"><a class="link-arrow" href="https://www.kfupm.edu.sa/study/international-students/visa-requirements">Visa requirements</a></p>
+        <p data-for="international"><a class="link-arrow" href="https://www.kfupm.edu.sa/study/international-students/study-in-saudi-arabia">Study in Saudi Arabia</a></p>
+      </div>
+      <div class="split-media"><img src="assets/img/building.webp" alt="KFUPM campus building" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section data-key="quote" data-not-for="faculty">
+  <div class="wrap">
+    <div class="quote-band reveal">
+      <img src="assets/img/profile-5.webp" alt="KFUPM international student" loading="lazy">
+      <div>
+        <blockquote>I chose KFUPM because it's the No. 1 university in Saudi Arabia and the Middle East.</blockquote>
+        <cite><a class="link-arrow" href="https://www.kfupm.edu.sa/study/international-students">More about international students</a></cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-key="contact" data-not-for="faculty">
+  <div class="wrap">
+    <div class="section-head reveal"><div><span class="eyebrow">Contact</span><h2 class="section-title" data-not-for="parent">Questions about applying?</h2><h2 class="section-title" data-for="parent">Questions about your child's application?</h2></div></div>
+    <div class="grid c4">
+      <div class="surface card reveal"><div class="body"><h3>Undergraduate Admissions Office</h3><dl class="kv"><dt>Phone</dt><dd><a href="tel:+966138602901">+966 (013) 860 2901</a></dd><dt>Email</dt><dd><a href="mailto:admissions@kfupm.edu.sa">admissions@kfupm.edu.sa</a></dd></dl></div></div>
+      <div class="surface card reveal"><div class="body"><h3>Graduate Admissions Office</h3><dl class="kv"><dt>Phone</dt><dd><a href="tel:+966138602901">+966 (013) 860 2901</a></dd><dt>Email</dt><dd><a href="mailto:admissions@kfupm.edu.sa">admissions@kfupm.edu.sa</a></dd></dl></div></div>
+      <div class="surface card reveal"><div class="body"><h3>Location</h3><p>Dhahran, 31261, KSA</p></div></div>
+      <div class="surface card reveal"><div class="body"><h3>Office hours</h3><p>Mon - Fri 9am - 5:30pm</p></div></div>
+      <a class="surface card reveal" href="https://www.kfupm.edu.sa/about-us/campus-life/student-housing-dining" data-for="parent">
+        <div class="body"><span class="tag">Campus life</span><h3>Student housing and dining</h3><span class="link-arrow">Housing and dining</span></div>
+      </a>
+      <a class="surface card reveal" href="https://www.kfupm.edu.sa/about-us/campus-life/health-and-safety" data-for="parent">
+        <div class="body"><span class="tag">Campus life</span><h3>Health and safety</h3><span class="link-arrow">Health and safety</span></div>
+      </a>
+      <a class="surface card reveal" href="https://www.kfupm.edu.sa/about-us/connect/contact-us" data-for="parent">
+        <div class="body"><span class="tag">Contact</span><h3>Contact KFUPM</h3><span class="link-arrow">Contact us</span></div>
+      </a>
+      <a class="surface card reveal" href="admissions-hub.html" data-for="parent">
+        <div class="body"><span class="tag">Admissions</span><h3>Admissions overview</h3><span class="link-arrow">Admissions overview</span></div>
+      </a>
+    </div>
+    <div class="surface cta-band reveal">
+      <div><h3>Ready when you are</h3><p>Create your account and start your application online.</p></div>
+      <a class="btn" href="https://apply.kfupm.edu.sa">Start application</a>
+    </div>
+  </div>
+</section>
