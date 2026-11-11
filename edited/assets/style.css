@@ -36,6 +36,8 @@
   --shadow: 0 10px 30px rgba(60, 40, 120, .10);
   --shadow-hi: 0 18px 44px rgba(60, 40, 120, .18);
   --radius: 18px;
+  --card-tint: #efeafa;
+  --quote-tint: #e9e1f8;
   --font: "Poppins", Arial, "Helvetica Neue", sans-serif;
 }
 
