@@ -50,7 +50,9 @@
 /* ---------- Text beside a picture ---------- */
 .split { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; }
 .split.reverse .split-media { order: -1; }
-.split-media img { width: 100%; border-radius: var(--radius); object-fit: cover; aspect-ratio: 4 / 3; }
+/* photos keep their own shape and are never stretched past their real size, so they stay sharp */
+.split-media { display: flex; justify-content: center; }
+.split-media img { width: auto; height: auto; max-width: 100%; border-radius: var(--radius); }
 .split h2 { font-family: var(--font-title, var(--font)); color: var(--accent); font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.2rem); line-height: 1.15; margin-bottom: 12px; }
 .split p { color: var(--muted); margin-bottom: 12px; }
 
@@ -147,8 +149,8 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); ou
 
 /* ---------- Feature list ---------- */
 ul.feature-list { list-style: none; display: grid; gap: 16px; }
-ul.feature-list > li { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; }
-ul.feature-list img { width: 44px; height: 44px; object-fit: contain; }
+ul.feature-list > li { display: grid; grid-template-columns: 14px 1fr; gap: 14px; align-items: start; }
+ul.feature-list img { width: 14px; height: 14px; margin-top: .4em; }
 ul.feature-list h3 { font-size: 1.02rem; margin-bottom: 2px; }
 ul.feature-list p { color: var(--muted); font-size: .94rem; }
 
