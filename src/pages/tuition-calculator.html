@@ -1,0 +1,597 @@
+<!--
+title: Tuition fee calculator · KFUPM
+description: Estimate your graduate tuition at KFUPM, including the discounts you qualify for, for project-based Master's, MBA, executive, thesis-based Master's and PhD programs.
+crumbs: Admissions=admissions.html; Tuition fee calculator
+h1: Tuition fee <em>calculator</em>
+lead: Choose your path and program, then add your details. Your estimate and savings update as you go.
+-->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal"><div><span class="eyebrow">Build your estimate</span><h2 class="section-title">Estimate your tuition</h2></div></div>
+    <div class="calc">
+      <form class="surface calc-form" id="tc-form" novalidate>
+        <div class="field">
+          <h3 id="tc-path-title">1. Study path</h3>
+          <div class="radio-row" role="radiogroup" aria-labelledby="tc-path-title">
+            <label><input type="radio" name="path" value="project" checked> Master's (project-based) &amp; MBA</label>
+            <label><input type="radio" name="path" value="thesis"> Thesis-based Master's &amp; PhD</label>
+          </div>
+          <p class="hint" id="tc-path-hint">Program fee with discounts.</p>
+        </div>
+
+        <div data-path="project">
+          <div class="field">
+            <label for="tc-cycle">Application cycle</label>
+            <select id="tc-cycle" name="cycle">
+              <option value="1">Cycle 1 · 4 Jan - 8 Feb 2026 · early-bird</option>
+              <option value="2">Cycle 2 · 11 Mar - 22 Apr 2026</option>
+              <option value="3">Cycle 3 · 3 Jun - 5 Jul 2026</option>
+            </select>
+            <p class="hint" id="tc-cycle-hint">Current cycle selected automatically.</p>
+            <p class="hint" id="tc-cycle-status"></p>
+          </div>
+        </div>
+
+        <div data-path="thesis" hidden>
+          <div class="field">
+            <h3>Application window</h3>
+            <p class="hint" id="tc-thesis-window"></p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="tc-programme">2. Program</label>
+          <select id="tc-programme" name="programme"></select>
+          <p class="hint">Choose your program from the list.</p>
+        </div>
+
+        <div data-path="project">
+          <div class="field">
+            <h3 id="tc-natp-title">3. Nationality</h3>
+            <div class="radio-row" role="radiogroup" aria-labelledby="tc-natp-title">
+              <label><input type="radio" name="nationality_project" value="saudi"> Saudi</label>
+              <label><input type="radio" name="nationality_project" value="resident"> Resident</label>
+              <label><input type="radio" name="nationality_project" value="international"> International</label>
+            </div>
+            <p class="hint">Resident = non-Saudi living in the Kingdom.</p>
+          </div>
+        </div>
+
+        <div data-path="thesis" hidden>
+          <div class="field">
+            <h3 id="tc-natt-title">3. Nationality</h3>
+            <div class="radio-row" role="radiogroup" aria-labelledby="tc-natt-title">
+              <label><input type="radio" name="nationality_thesis" value="saudi"> Saudi</label>
+              <label><input type="radio" name="nationality_thesis" value="non-saudi"> Non-Saudi</label>
+            </div>
+          </div>
+        </div>
+
+        <div data-path="project">
+          <div class="field">
+            <h3 id="tc-status-title">4. Student type</h3>
+            <div class="radio-row" role="radiogroup" aria-labelledby="tc-status-title">
+              <label><input type="radio" name="status" value="continuing"> Continuing</label>
+              <label><input type="radio" name="status" value="returning"> Returning</label>
+              <label><input type="radio" name="status" value="non-kfupm"> Non-KFUPM</label>
+            </div>
+            <p class="hint" id="tc-status-hint" hidden>Applicable to KFUPM BS degree holders only.</p>
+          </div>
+        </div>
+
+        <div data-path="project">
+          <div class="field">
+            <h3 id="tc-spons-title">5. Sponsorship / funding</h3>
+            <div class="radio-row" role="radiogroup" aria-labelledby="tc-spons-title">
+              <label><input type="radio" name="sponsored" value="no" checked> No, I pay myself</label>
+              <label><input type="radio" name="sponsored" value="yes"> Yes, company-sponsored</label>
+            </div>
+          </div>
+        </div>
+
+        <div data-path="thesis" hidden>
+          <div class="field">
+            <h3 id="tc-fund-title">4. Sponsorship / funding</h3>
+            <div class="radio-row" role="radiogroup" aria-labelledby="tc-fund-title">
+              <label><input type="radio" name="funding" value="self"> Self-sponsored</label>
+              <label><input type="radio" name="funding" value="scholarship"> KFUPM scholarship</label>
+              <label><input type="radio" name="funding" value="sponsored"> Employer / sponsor</label>
+            </div>
+          </div>
+        </div>
+
+        <div data-path="thesis" data-self hidden>
+          <div class="field">
+            <h3 id="tc-stage-title">5. Stage</h3>
+            <div class="radio-row" role="radiogroup" aria-labelledby="tc-stage-title">
+              <label><input type="radio" name="stage" value="coursework" checked> Coursework</label>
+              <label><input type="radio" name="stage" value="thesis"> Thesis / dissertation</label>
+            </div>
+            <p class="hint">The per-semester registration fee reduces once you reach the thesis/dissertation stage.</p>
+          </div>
+        </div>
+
+        <div data-path="thesis" data-self hidden>
+          <div class="field">
+            <label for="tc-credits">Credit hours this semester</label>
+            <input type="number" id="tc-credits" name="credits" min="3" max="12" step="1" inputmode="numeric" value="5" aria-describedby="tc-credits-hint tc-credits-error">
+            <p class="hint" id="tc-credits-hint">Minimum 3, maximum 12.</p>
+            <p class="hint" id="tc-credits-error" role="alert" hidden></p>
+          </div>
+        </div>
+
+        <div class="field">
+          <h3 id="tc-cur-title">Show amounts in</h3>
+          <div class="radio-row" role="radiogroup" aria-labelledby="tc-cur-title">
+            <label><input type="radio" name="currency" value="SAR" checked> SAR</label>
+            <label><input type="radio" name="currency" value="USD"> USD</label>
+          </div>
+        </div>
+      </form>
+
+      <div class="surface calc-result" aria-live="polite">
+        <span class="eyebrow" id="tc-you-pay">Your estimate</span>
+        <h3 id="tc-heading">Estimated tuition</h3>
+        <div class="total" id="tc-total" hidden></div>
+        <p class="note" id="tc-unit" hidden></p>
+        <p id="tc-message">Answer a few questions and your estimated tuition - including any discounts you qualify for - will appear here, updating as you go.</p>
+        <dl id="tc-breakdown"></dl>
+        <p class="note" id="tc-notes" hidden></p>
+        <p class="note" id="tc-disclaimer" hidden></p>
+        <div>
+          <a class="btn" id="tc-apply" href="https://www.kfupm.edu.sa/study">Apply to this program</a>
+          <button class="btn ghost" type="button" id="tc-reset">Reset calculator</button>
+        </div>
+        <p class="note">Your information is secure and used only to estimate tuition.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal"><div><span class="eyebrow">Behind the estimate</span><h2 class="section-title">Fees and discounts</h2><p class="lead">The figures the calculator uses. Fees shown include 15% VAT. Final fees are confirmed by the Deanship of Graduate Studies on admission.</p></div></div>
+    <div class="grid">
+      <div class="table-wrap reveal">
+        <table class="data">
+          <caption class="result-count">Master's (project-based), MBA and executive programs</caption>
+          <thead>
+            <tr><th scope="col">Program</th><th scope="col">Program fee (SAR)</th><th scope="col">Discounts</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>MS in Artificial Intelligence, Business Analytics, Cybersecurity, Project Management, Supply Chain Management</td><td>70,000</td><td>Yes</td></tr>
+            <tr><td>MS in Bioengineering, Data Science &amp; Analytics, Internet of Things and Embedded Systems, Nuclear Engineering, Quantum Computing</td><td>50,000</td><td>Yes</td></tr>
+            <tr><td>Master of Business Administration (MBA)</td><td>80,000</td><td>Yes</td></tr>
+            <tr><td>Executive Master of Business Administration (EMBA)</td><td>149,500 (130,000 plus VAT)</td><td>No</td></tr>
+            <tr><td>Master of Engineering in Sustainable and Renewable Energy (Executive)</td><td>103,500 (90,000 plus VAT)</td><td>No</td></tr>
+            <tr><td>Master of Science in Non-Profit Management (not running in the current intake; last published fee)</td><td>250,000</td><td>No</td></tr>
+            <tr><td>Any of the above, company-sponsored</td><td>150,000 flat</td><td>No</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-wrap reveal">
+        <table class="data">
+          <caption class="result-count">Discounts for Master's (project-based) and MBA</caption>
+          <thead>
+            <tr><th scope="col">Discount</th><th scope="col">Amount</th><th scope="col">Who it applies to</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>KFUPM Continuing Scholar Discount</td><td>60%</td><td>Continuing students (KFUPM BS degree holders). Not available for the MBA.</td></tr>
+            <tr><td>KFUPM Lifelong Learner Discount</td><td>30%</td><td>Returning students (KFUPM BS degree holders)</td></tr>
+            <tr><td>Vision 2030 Citizen Discount</td><td>25%</td><td>Saudi nationals</td></tr>
+            <tr><td>Vision 2030 Destination KSA Discount</td><td>25%</td><td>International applicants</td></tr>
+            <tr><td>Early Bird Discount</td><td>25%</td><td>Applications in Cycle 1 (4 Jan - 8 Feb 2026)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-wrap reveal">
+        <table class="data">
+          <caption class="result-count">Thesis-based Master's and PhD, per semester (self-sponsored)</caption>
+          <thead>
+            <tr><th scope="col">Fee</th><th scope="col">Saudi (SAR)</th><th scope="col">Non-Saudi (SAR)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Registration fee, coursework stage</td><td>5,000</td><td>7,500</td></tr>
+            <tr><td>Registration fee, thesis/dissertation stage</td><td>2,500</td><td>3,750</td></tr>
+            <tr><td>Per credit hour (3 to 12 credit hours a semester)</td><td>500</td><td>500</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal"><div><span class="eyebrow">Questions</span><h2 class="section-title">Frequently Asked Questions</h2></div><a class="btn ghost" href="admissions.html">More FAQs</a></div>
+    <div class="reveal">
+      <details class="acc">
+        <summary>How are the discounts applied?</summary>
+        <div class="acc-body">
+          <p>Discounts stack according to your eligibility. Each one is taken off the amount left after the one before it, in this order: Continuing Scholar, Lifelong Learner, Citizen, Destination KSA, then Early Bird.</p>
+          <p>For example, a Saudi continuing student applying in Cycle 1 to a 50,000 SAR program saves 60% (30,000 SAR), then 25% of the remaining 20,000 SAR (5,000 SAR), then 25% of the remaining 15,000 SAR (3,750 SAR), and pays 11,250 SAR.</p>
+          <p>Executive programs and company-sponsored applicants are charged a flat fee with no discounts. Final fees are confirmed by the Deanship of Graduate Studies on admission.</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>Which discounts could I be eligible for?</summary>
+        <div class="acc-body">
+          <ul class="dept-list">
+            <li>KFUPM Continuing Scholar Discount (60%) for continuing students</li>
+            <li>KFUPM Lifelong Learner Discount (30%) for returning students</li>
+            <li>Vision 2030 Citizen Discount (25%) for Saudi nationals</li>
+            <li>Vision 2030 Destination KSA Discount (25%) for international applicants</li>
+            <li>Early Bird Discount (25%) for applications in Cycle 1</li>
+          </ul>
+          <p>The continuing and returning student types apply to KFUPM BS degree holders only. The MBA requires three years of professional experience, so it has no continuing-student route. International applicants usually apply in Cycle 1; places in later cycles are by exception, so please confirm availability with Graduate Admissions.</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>How is thesis-based and PhD tuition worked out?</summary>
+        <div class="acc-body">
+          <p>Self-sponsored thesis and PhD students pay per semester: a registration fee plus 500 SAR for each credit hour, for 3 to 12 credit hours. The registration fee is 5,000 SAR for Saudi students and 7,500 SAR for non-Saudi students during coursework, and reduces to 2,500 SAR and 3,750 SAR at the thesis/dissertation stage.</p>
+          <p>Scholarship students pay no tuition. The scholarship also includes a stipend, on-campus housing, medical care, and other benefits. For sponsored students, the employer or sponsoring body settles the registration and credit-hour fees directly.</p>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>Can I see fees in US dollars?</summary>
+        <div class="acc-body">
+          <p>Yes. Choose USD under "Show amounts in" and every figure in your estimate is converted at 3.75 SAR to the US dollar.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var CONFIG = {
+        applyUrl: 'https://www.kfupm.edu.sa/study',
+        vatRate: 0.15,
+        usdRate: 3.75,
+        basePrices: { MX_Regular: 50000, MX_Popular: 70000, MBA: 80000 },
+        discounts: [
+          { name: 'KFUPM Continuing Scholar Discount', pct: 60, when: { status: 'continuing' } },
+          { name: 'KFUPM Lifelong Learner Discount', pct: 30, when: { status: 'returning' } },
+          { name: 'Vision 2030 Citizen Discount', pct: 25, when: { nationality: 'saudi' } },
+          { name: 'Vision 2030 Destination KSA Discount', pct: 25, when: { nationality: 'international' } },
+          { name: 'Early Bird Discount', pct: 25, when: { earlyRegistration: true } }
+        ],
+        registration: {
+          'saudi': { coursework: 5000, thesis: 2500 },
+          'non-saudi': { coursework: 7500, thesis: 3750 }
+        },
+        creditHour: 500,
+        creditsMin: 3,
+        creditsMax: 12,
+        sponsoredFlat: 150000,
+        cycles: [
+          { id: 1, label: 'Cycle 1', open: '2026-01-04', close: '2026-02-08', early: true },
+          { id: 2, label: 'Cycle 2', open: '2026-03-11', close: '2026-04-22', early: false },
+          { id: 3, label: 'Cycle 3', open: '2026-06-03', close: '2026-07-05', early: false }
+        ],
+        thesisWindow: { open: '2026-05-20', close: '2026-06-30' },
+        programmes: [
+          { key: 'ai', name: 'Master of Science in Artificial Intelligence', path: 'project', rule: 'ms', category: 'MX_Popular' },
+          { key: 'ba', name: 'Master of Science in Business Analytics', path: 'project', rule: 'ms', category: 'MX_Popular' },
+          { key: 'cyber', name: 'Master of Science in Cybersecurity', path: 'project', rule: 'ms', category: 'MX_Popular' },
+          { key: 'pm', name: 'Master of Science in Project Management', path: 'project', rule: 'ms', category: 'MX_Popular' },
+          { key: 'scm', name: 'Master of Science in Supply Chain Management', path: 'project', rule: 'ms', category: 'MX_Popular' },
+          { key: 'bio', name: 'Master of Science in Bioengineering', path: 'project', rule: 'ms', category: 'MX_Regular' },
+          { key: 'dsa', name: 'Master of Science in Data Science & Analytics', path: 'project', rule: 'ms', category: 'MX_Regular' },
+          { key: 'iot', name: 'Master of Science in Internet of Things and Embedded Systems', path: 'project', rule: 'ms', category: 'MX_Regular' },
+          { key: 'ne', name: 'Master of Science in Nuclear Engineering', path: 'project', rule: 'ms', category: 'MX_Regular' },
+          { key: 'qc', name: 'Master of Science in Quantum Computing', path: 'project', rule: 'ms', category: 'MX_Regular' },
+          { key: 'mba', name: 'Master of Business Administration (MBA)', path: 'project', rule: 'mba', category: 'MBA' },
+          { key: 'emba', name: 'Executive Master of Business Administration (EMBA)', path: 'project', rule: 'flat', flat: 130000, vat: true },
+          { key: 'meng-sre', name: 'Master of Engineering in Sustainable and Renewable Energy (Executive)', path: 'project', rule: 'flat', flat: 90000, vat: true },
+          { key: 'npm', name: 'Master of Science in Non-Profit Management', path: 'project', rule: 'flat', flat: 250000, vat: false, paused: true },
+          { key: 't-chem', name: 'Chemistry (MS - Thesis)', path: 'thesis', rule: 'thesis', award: 'thesis' },
+          { key: 't-me', name: 'Mechanical Engineering (MS - Thesis)', path: 'thesis', rule: 'thesis', award: 'thesis' },
+          { key: 'phd-cs', name: 'Computer Science (PhD)', path: 'thesis', rule: 'thesis', award: 'phd' },
+          { key: 'phd-ee', name: 'Electrical Engineering (PhD)', path: 'thesis', rule: 'thesis', award: 'phd' }
+        ],
+        groups: [
+          { id: 'ms', label: "Master's (project-based)" },
+          { id: 'mba', label: 'MBA' },
+          { id: 'exec', label: 'Executive / professional' },
+          { id: 'thesis', label: "Thesis-based Master's" },
+          { id: 'phd', label: 'PhD programs' }
+        ],
+        messages: {
+          mbaExperience: 'The MBA requires three years of professional experience, so it has no continuing-student route. Please contact the MBA Program Office to discuss eligibility.',
+          scholarshipCovered: 'Scholarship students pay no tuition. The scholarship also includes a stipend, on-campus housing, medical care, and other benefits.',
+          sponsorCovered: 'Tuition for sponsored thesis and PhD students is paid by the employer or sponsoring body, who settle the registration and credit-hour fees directly.',
+          sponsoredFlatNote: 'Company-sponsored applicants are charged a flat program fee, independent of category, discounts, and cycle.',
+          pausedNote: 'This program is not running in the current intake and may be revised before it is offered again. The figure shown is the last published fee.',
+          internationalLaterCycle: 'International applicants usually apply in Cycle 1. Places in later cycles are by exception, so please confirm availability with Graduate Admissions.',
+          errorGeneric: 'We could not calculate an estimate for this selection. Please contact Graduate Admissions to confirm the fee for this program.',
+          cycleHintAuto: 'Current cycle selected automatically.',
+          cycleHintManual: 'Cycle selected manually.',
+          cycleOpen: 'You are applying in {label}, open now until {close}.',
+          cycleUpcoming: '{label} opens {open} and runs to {close}.',
+          cycleClosed: '{label} has closed (it ran {open} to {close}).',
+          earlyBirdApplies: 'The Early Bird Discount is included in this estimate.',
+          earlyBirdNotApplies: 'The Early Bird Discount does not apply to this cycle.',
+          thesisWindowOpen: 'Thesis and PhD applications are open now until {close}.',
+          thesisWindowUpcoming: 'Thesis and PhD applications open {open} and run to {close}.',
+          thesisWindowClosed: 'Thesis and PhD applications for this intake have closed (they ran {open} to {close}).',
+          disclaimerProject: 'Fees shown include 15% VAT. Discounts stack per your eligibility. Final fees are confirmed by the Deanship of Graduate Studies on admission. USD shown at 3.75 SAR.',
+          disclaimerFlat: 'Fees shown include 15% VAT. Executive programs carry no discount. USD shown at 3.75 SAR.',
+          disclaimerThesis: 'Per-semester estimate for self-sponsored students, including 15% VAT. The registration fee reduces at the thesis/dissertation stage. USD shown at 3.75 SAR.'
+        }
+      };
+
+      var form = document.getElementById('tc-form');
+      var $ = function (id) { return document.getElementById(id); };
+      var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+      function checked(name) {
+        var el = form.querySelector('input[name="' + name + '"]:checked');
+        return el ? el.value : null;
+      }
+      function today() {
+        var d = new Date();
+        return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
+      }
+      function niceDate(iso) {
+        var p = iso.split('-');
+        return parseInt(p[2], 10) + ' ' + MONTHS[parseInt(p[1], 10) - 1] + ' ' + p[0];
+      }
+      function fill(text, vals) {
+        return text.replace(/\{(\w+)\}/g, function (m, k) { return k in vals ? vals[k] : m; });
+      }
+      function windowState(open, close, now) {
+        return now < open ? 'upcoming' : now > close ? 'closed' : 'open';
+      }
+      function currentCycle(now) {
+        var c = CONFIG.cycles, i;
+        for (i = 0; i < c.length; i++) if (c[i].open <= now && now <= c[i].close) return c[i].id;
+        for (i = 0; i < c.length; i++) if (c[i].open > now) return c[i].id;
+        return c[c.length - 1].id;
+      }
+      function findCycle(id) {
+        for (var i = 0; i < CONFIG.cycles.length; i++) if (CONFIG.cycles[i].id === id) return CONFIG.cycles[i];
+        return null;
+      }
+      function findProgramme(key) {
+        for (var i = 0; i < CONFIG.programmes.length; i++) if (CONFIG.programmes[i].key === key) return CONFIG.programmes[i];
+        return null;
+      }
+      function groupOf(p) {
+        return p.award === 'phd' ? 'phd' : p.award === 'thesis' ? 'thesis' : p.rule === 'flat' ? 'exec' : p.rule === 'mba' ? 'mba' : 'ms';
+      }
+      function typeOf(p) {
+        return p.award === 'phd' ? 'PhD' : p.award === 'thesis' ? 'Thesis' : p.rule === 'flat' ? 'Executive' : p.rule === 'mba' ? 'MBA' : "Master's";
+      }
+
+      function fillProgrammes(path) {
+        var sel = $('tc-programme');
+        sel.innerHTML = '';
+        var first = document.createElement('option');
+        first.value = '';
+        first.disabled = true;
+        first.selected = true;
+        first.textContent = 'Select your program';
+        sel.appendChild(first);
+        CONFIG.groups.forEach(function (g) {
+          var items = CONFIG.programmes.filter(function (p) { return p.path === path && groupOf(p) === g.id; });
+          if (!items.length) return;
+          var og = document.createElement('optgroup');
+          og.label = g.label;
+          items.forEach(function (p) {
+            var o = document.createElement('option');
+            o.value = p.key;
+            o.textContent = p.name;
+            og.appendChild(o);
+          });
+          sel.appendChild(og);
+        });
+      }
+
+      // Split the total saving across discounts so the rounded parts add up exactly.
+      function roundParts(parts, total) {
+        var r = parts.map(Math.round);
+        var diff = total - r.reduce(function (a, b) { return a + b; }, 0);
+        if (diff !== 0 && r.length) {
+          var big = 0;
+          for (var i = 1; i < r.length; i++) if (Math.abs(r[i]) > Math.abs(r[big])) big = i;
+          r[big] += diff;
+        }
+        return r;
+      }
+
+      function estimate(s) {
+        var p = findProgramme(s.programme);
+        if (!p) return { kind: 'incomplete' };
+        if (p.path === 'project') {
+          if (s.sponsored === 'yes') {
+            return { kind: 'price', p: p, base: CONFIG.sponsoredFlat, pay: CONFIG.sponsoredFlat, discounts: [], saved: 0, flat: true, notes: [CONFIG.messages.sponsoredFlatNote] };
+          }
+          if (p.rule === 'flat') {
+            var fee = p.vat ? Math.round(p.flat * (1 + CONFIG.vatRate)) : p.flat;
+            return { kind: 'price', p: p, base: fee, pay: fee, discounts: [], saved: 0, flat: true, notes: p.paused ? [CONFIG.messages.pausedNote] : [] };
+          }
+          if (!s.nationality || !s.status) return { kind: 'incomplete' };
+          if (p.category === 'MBA' && s.status === 'continuing') {
+            return { kind: 'message', title: 'Not available for this option', text: CONFIG.messages.mbaExperience };
+          }
+          var base = CONFIG.basePrices[p.category];
+          var cycle = findCycle(s.cycle);
+          var early = !!(cycle && cycle.early);
+          var facts = { nationality: s.nationality, status: s.status, earlyRegistration: early };
+          var apply = CONFIG.discounts.filter(function (d) {
+            return Object.keys(d.when).every(function (k) { return facts[k] === d.when[k]; });
+          });
+          var left = base, raw = [];
+          apply.forEach(function (d) {
+            var cut = left * d.pct / 100;
+            raw.push(cut);
+            left -= cut;
+          });
+          var pay = Math.round(left);
+          var saved = base - pay;
+          var parts = roundParts(raw, saved);
+          var notes = [];
+          if (s.nationality === 'international' && !early) notes.push(CONFIG.messages.internationalLaterCycle);
+          return {
+            kind: 'price', p: p, base: base, pay: pay, saved: saved,
+            pct: base ? Math.round(saved / base * 100) : 0,
+            discounts: apply.map(function (d, i) { return { name: d.name, pct: d.pct, amount: parts[i] }; }),
+            notes: notes
+          };
+        }
+        if (!s.funding) return { kind: 'incomplete' };
+        if (s.funding === 'scholarship') return { kind: 'message', title: 'Your tuition is covered', text: CONFIG.messages.scholarshipCovered };
+        if (s.funding === 'sponsored') return { kind: 'message', title: 'Your tuition is covered', text: CONFIG.messages.sponsorCovered };
+        if (!s.nationality || !s.stage) return { kind: 'incomplete' };
+        var reg = CONFIG.registration[s.nationality][s.stage];
+        if (!(s.credits >= CONFIG.creditsMin && s.credits <= CONFIG.creditsMax)) return { kind: 'incomplete' };
+        var credit = s.credits * CONFIG.creditHour;
+        return { kind: 'price', p: p, base: reg + credit, pay: reg + credit, discounts: [], saved: 0, perSemester: true, registration: reg, credits: s.credits, creditTotal: credit, stage: s.stage, notes: [] };
+      }
+
+      function readState() {
+        var path = checked('path') || 'project';
+        var s = { path: path, programme: $('tc-programme').value || null };
+        if (path === 'project') {
+          s.nationality = checked('nationality_project');
+          s.status = checked('status');
+          s.sponsored = checked('sponsored');
+          s.cycle = parseInt($('tc-cycle').value, 10);
+        } else {
+          s.nationality = checked('nationality_thesis');
+          s.funding = checked('funding');
+          s.stage = checked('stage');
+          s.credits = parseInt($('tc-credits').value, 10);
+        }
+        return s;
+      }
+
+      function money(v, cur) {
+        var n = cur === 'USD' ? v / CONFIG.usdRate : v;
+        return Math.round(n).toLocaleString('en-GB');
+      }
+      function row(dl, label, value) {
+        var dt = document.createElement('dt');
+        var dd = document.createElement('dd');
+        dt.textContent = label;
+        dd.textContent = value;
+        dl.appendChild(dt);
+        dl.appendChild(dd);
+      }
+      function showText(id, text) {
+        var el = $(id);
+        el.textContent = text || '';
+        el.hidden = !text;
+      }
+
+      function updateFields(s) {
+        form.querySelectorAll('[data-path]').forEach(function (el) {
+          var show = el.getAttribute('data-path') === s.path;
+          if (show && el.hasAttribute('data-self')) show = s.funding === 'self';
+          el.hidden = !show;
+        });
+        $('tc-path-hint').textContent = s.path === 'project' ? 'Program fee with discounts.' : 'Registration + per credit hour.';
+        $('tc-status-hint').hidden = !(s.status === 'continuing' || s.status === 'returning');
+        var now = today();
+        if (s.path === 'project') {
+          var c = findCycle(s.cycle);
+          var state = windowState(c.open, c.close, now);
+          var key = state === 'open' ? 'cycleOpen' : state === 'upcoming' ? 'cycleUpcoming' : 'cycleClosed';
+          $('tc-cycle-status').textContent = fill(CONFIG.messages[key], { label: c.label, open: niceDate(c.open), close: niceDate(c.close) }) + ' ' +
+            CONFIG.messages[c.early ? 'earlyBirdApplies' : 'earlyBirdNotApplies'];
+          $('tc-cycle-hint').textContent = CONFIG.messages[s.cycle === currentCycle(now) ? 'cycleHintAuto' : 'cycleHintManual'];
+        } else {
+          var w = CONFIG.thesisWindow;
+          var ws = windowState(w.open, w.close, now);
+          var wk = ws === 'open' ? 'thesisWindowOpen' : ws === 'upcoming' ? 'thesisWindowUpcoming' : 'thesisWindowClosed';
+          $('tc-thesis-window').textContent = fill(CONFIG.messages[wk], { open: niceDate(w.open), close: niceDate(w.close) });
+        }
+        var bad = s.path === 'thesis' && s.funding === 'self' && !!s.stage &&
+          !(s.credits >= CONFIG.creditsMin && s.credits <= CONFIG.creditsMax);
+        showText('tc-credits-error', bad ? 'Enter between ' + CONFIG.creditsMin + ' and ' + CONFIG.creditsMax + ' credit hours to see your estimate.' : '');
+      }
+
+      function render() {
+        var s = readState();
+        var cur = checked('currency') || 'SAR';
+        updateFields(s);
+        var r = estimate(s);
+        var dl = $('tc-breakdown');
+        dl.innerHTML = '';
+        $('tc-apply').href = CONFIG.applyUrl;
+
+        if (r.kind !== 'price') {
+          $('tc-you-pay').textContent = 'Your estimate';
+          $('tc-total').hidden = true;
+          $('tc-unit').hidden = true;
+          showText('tc-notes', '');
+          showText('tc-disclaimer', '');
+          if (r.kind === 'message') {
+            $('tc-heading').textContent = r.title;
+            showText('tc-message', r.text);
+          } else {
+            $('tc-heading').textContent = 'Estimated tuition';
+            showText('tc-message', 'Answer a few questions and your estimated tuition - including any discounts you qualify for - will appear here, updating as you go.');
+          }
+          return;
+        }
+
+        $('tc-you-pay').textContent = typeOf(r.p) + ' · ' + (r.perSemester ? 'You pay per semester' : 'You pay');
+        $('tc-heading').textContent = r.p.name;
+        $('tc-total').textContent = money(r.pay, cur);
+        $('tc-total').hidden = false;
+        showText('tc-unit', cur + ', includes 15% VAT');
+        showText('tc-message', '');
+
+        if (r.perSemester) {
+          row(dl, 'Registration fee (' + (r.stage === 'thesis' ? 'thesis stage' : 'coursework stage') + ')', money(r.registration, cur) + ' ' + cur);
+          row(dl, 'Credit hours (' + r.credits + ' × ' + money(CONFIG.creditHour, cur) + ' ' + cur + ')', money(r.creditTotal, cur) + ' ' + cur);
+        } else {
+          row(dl, r.discounts.length ? 'Base fee' : 'Program fee', money(r.base, cur) + ' ' + cur);
+          r.discounts.forEach(function (d) {
+            row(dl, d.name + ' (' + d.pct + '%)', '-' + money(d.amount, cur) + ' ' + cur);
+          });
+          if (r.saved > 0) row(dl, 'You save (' + r.pct + '%)', money(r.saved, cur) + ' ' + cur);
+        }
+        showText('tc-notes', r.notes.join(' '));
+        showText('tc-disclaimer', CONFIG.messages[r.perSemester ? 'disclaimerThesis' : r.flat && r.p.rule === 'flat' ? 'disclaimerFlat' : 'disclaimerProject']);
+      }
+
+      function clearChoices() {
+        ['nationality_project', 'status', 'nationality_thesis', 'funding'].forEach(function (name) {
+          form.querySelectorAll('input[name="' + name + '"]').forEach(function (el) { el.checked = false; });
+        });
+        form.querySelector('input[name="sponsored"][value="no"]').checked = true;
+        form.querySelector('input[name="stage"][value="coursework"]').checked = true;
+      }
+
+      function start() {
+        form.querySelector('input[name="path"][value="project"]').checked = true;
+        form.querySelector('input[name="currency"][value="SAR"]').checked = true;
+        fillProgrammes('project');
+        clearChoices();
+        $('tc-credits').value = $('tc-credits').defaultValue;
+        $('tc-cycle').value = String(currentCycle(today()));
+        render();
+      }
+
+      form.addEventListener('change', function (e) {
+        if (e.target.name === 'path') {
+          fillProgrammes(e.target.value);
+          clearChoices();
+        }
+        if (e.target.id === 'tc-credits' && isNaN(parseInt(e.target.value, 10))) {
+          e.target.value = String(CONFIG.creditsMin);
+        }
+        render();
+      });
+      form.addEventListener('input', render);
+      form.addEventListener('submit', function (e) { e.preventDefault(); });
+      $('tc-reset').addEventListener('click', function () {
+        start();
+        form.querySelector('input[name="path"]').focus();
+      });
+      start();
+    })();
+  </script>
+</section>
